@@ -72,6 +72,6 @@ public class CreditDestinationWalletStep implements SagaStepInterface {
 
     @Override
     public String getStepName() {
-        return "CreditDestinationWalletStep";
+        return "CREDIT_DESTINATION_WALLET_STEP";
     }
 }

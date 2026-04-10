@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Builder
+
 public class SagaContext {
     private Map<String, Object> data;
     public SagaContext(Map<String, Object> data) {
