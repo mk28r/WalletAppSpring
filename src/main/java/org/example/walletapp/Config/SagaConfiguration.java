@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
-
 @Configuration
-public class SagaStepFactoryConfig {
+public class SagaConfiguration {
+
     @Bean
     public Map<String, SagaStepInterface> sagaStepMap(
             DebitSourceWalletStep debitSourceWalletStep,
@@ -20,9 +20,11 @@ public class SagaStepFactoryConfig {
             UpdateTransactionStatus updateTransactionStatus
     ) {
         Map<String, SagaStepInterface> map = new HashMap<>();
-        map.put(SagaStepFactory.SagaStepType.DEBIT_SOURCE_WALLET_STEP.toString(), debitSourceWalletStep);
-        map.put(SagaStepFactory.SagaStepType.CREDIT_DESTINATION_WALLET_STEP.toString(), creditDestinationWalletStep);
-        map.put(SagaStepFactory.SagaStepType.UPDATE_TRANSACTION_STATUS_STEP.toString(), updateTransactionStatus);
+
+        map.put(debitSourceWalletStep.getStepName(), debitSourceWalletStep);
+        map.put(creditDestinationWalletStep.getStepName(), creditDestinationWalletStep);
+        map.put(updateTransactionStatus.getStepName(), updateTransactionStatus);
+
         return map;
     }
 }
